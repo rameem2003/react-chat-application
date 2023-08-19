@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Kanit:ital,wght@1,500&family=Poppins:wght@500;600&display=swap");
+:root {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --background-color: #4b7bec;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Carter One", cursive;
+  font-family: "Kanit", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+}
