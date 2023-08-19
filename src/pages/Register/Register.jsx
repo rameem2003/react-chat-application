@@ -1,5 +1,6 @@
 import React from "react";
 import "../../common/styles/form.css";
+import file from "../../assets/file_icon.png";
 
 const Register = () => {
   return (
@@ -18,7 +19,9 @@ const Register = () => {
         />
 
         <input type="file" name="" id="file" hidden />
-        <label htmlFor="file">FILE</label>
+        <label htmlFor="file">
+          <img src="" alt="" />
+        </label>
 
         <input type="submit" value="Signup" />
 
