@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Search = () => {
+  const [userName, setUserName] = useState("");
+  const [user, setUser] = useState(null);
+  const [err, setErr] = useState(false);
+
+  const handleSearch = () => {};
+
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSearch();
+  };
   return (
     <div className="search">
       <div className="searchForm">
-        <input type="text" name="" id="" placeholder="Search Contact" />
+        <input
+          type="text"
+          name=""
+          id=""
+          placeholder="Search Contact"
+          onKeyDown={handleKey}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
 
       <div className="userChat">
