@@ -1,40 +1,50 @@
-import React from "react";
+import { doc, onSnapshot } from "firebase/firestore";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { db } from "../firebase";
+import { ChatContext } from "../context/ChatContext";
 
 const Chats = () => {
+  const [chats, setChats] = useState([]);
+  const { currentUser } = useContext(AuthContext);
+  const { dispatch } = useContext(ChatContext);
+
+  useEffect(() => {
+    const getChats = () => {
+      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
+        // console.log("Current data: ", doc.data());
+        setChats(doc.data());
+      });
+
+      return () => {
+        unsub();
+      };
+    };
+
+    currentUser.uid && getChats();
+  }, [currentUser.uid]);
+
+  // console.log(Object.entries(chats));
+
+  const handleSelect = (u) => {
+    dispatch({ type: "CHANGE_USER", payload: u });
+  };
+
   return (
     <div className="chats">
-      <div className="userChat">
-        <img
-          src="https://rameem2003.github.io/oursite/img/gallery/MAHMOOD%20HASSAN%20RAMEEM%201.jpg"
-          alt=""
-        />
-        <div className="userChatInfo">
-          <h3>Rameem</h3>
-          <span>Hi Apu ❤</span>
+      {Object.entries(chats)?.map((chat) => (
+        <div
+          className="userChat"
+          key={chat[0]}
+          onClick={() => handleSelect(chat[1].userInfo)}
+        >
+          <img src={chat[1].userInfo.photoURL} alt="" />
+          <div className="userChatInfo">
+            <h3>{chat[1].userInfo.displayName}</h3>
+            <span>{chat[1].userInfo.lastMessage?.text}</span>
+          </div>
         </div>
-      </div>
-
-      <div className="userChat">
-        <img
-          src="https://rameem2003.github.io/oursite/img/gallery/jahid_rasel.jpg"
-          alt=""
-        />
-        <div className="userChatInfo">
-          <h3>Rasel</h3>
-          <span>Hi Fahmida. How Are You</span>
-        </div>
-      </div>
-
-      <div className="userChat">
-        <img
-          src="https://scontent.fdac33-1.fna.fbcdn.net/v/t39.30808-1/356825454_989103742243020_3550030926943803807_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeGBrWdHEdvVy7nPpxQna4URCSzi_3VoDgcJLOL_dWgOB-tUJ2UIMvDHtpdu9K1nHfpEP3mEFjfNeVB0T__3Sdyr&_nc_ohc=-b1601dRdKMAX8OAdEW&_nc_ht=scontent.fdac33-1.fna&oh=00_AfDmJ11HuvCjEcyYzbX8imFF3L-n56kkDCi5uk3mqGBBjA&oe=64E552C7"
-          alt=""
-        />
-        <div className="userChatInfo">
-          <h3>My Soulmate</h3>
-          <span>Baby 🥰</span>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
 
-const Message = (props) => {
+const Message = ({ message }) => {
+  console.log(message);
   return (
-    <div className={` message ${props.owner}`}>
+    <div className="message owner">
       <div className="messageInfo">
         <img
           src="https://rameem2003.github.io/oursite/img/gallery/MAHMOOD%20HASSAN%20RAMEEM%201.jpg"
@@ -11,7 +12,7 @@ const Message = (props) => {
         <span>Now</span>
       </div>
       <div className="messageContent">
-        <p>{props.text}</p>
+        <p>Hi</p>
       </div>
     </div>
   );
