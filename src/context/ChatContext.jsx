@@ -13,21 +13,9 @@ export const ChatContext = createContext();
 
 export const ChatContextProvider = ({ children }) => {
   const { currentUser } = useContext(AuthContext);
-  //   const [currentUser, setCurrentUser] = useState({});
-
-  //   useEffect(() => {
-  //     const unsub = onAuthStateChanged(auth, (user) => {
-  //       setCurrentUser(user);
-  //       // console.log(user);
-  //     });
-
-  //     return () => {
-  //       unsub();
-  //     };
-  //   }, []);
 
   const INITIAL_STATE = {
-    chatId: null,
+    chatId: "null",
     user: {},
   };
 

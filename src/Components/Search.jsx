@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "./../context/AuthContext";
-import { ChatContext } from "../context/ChatContext";
+// import { ChatContext } from "../context/ChatContext";
 
 const Search = () => {
   const [userName, setUserName] = useState("");
@@ -22,7 +22,7 @@ const Search = () => {
   const [err, setErr] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
-  const { dispatch } = useContext(ChatContext);
+  // const { dispatch } = useContext(ChatContext);
 
   const handleSearch = async () => {
     const q = query(
@@ -36,7 +36,7 @@ const Search = () => {
         // doc.data() is never undefined for query doc snapshots
         // console.log(doc.id, " => ", doc.data());
         setUser(doc.data());
-        console.log(user);
+        // console.log(user);
       });
     } catch (error) {
       setErr(true);
@@ -48,7 +48,7 @@ const Search = () => {
   };
 
   const handleSelect = async () => {
-    dispatch({ type: "CHANGE_USER", payload: u });
+    // dispatch({ type: "CHANGE_USER", payload: u });
     // check the group (chats in firestore) exist
     const combinedID =
       currentUser.uid > user.uid
