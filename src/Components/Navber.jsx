@@ -8,7 +8,12 @@ const Navber = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <h3>WOW CHAT</h3>
+        <h3>
+          WOW CHAT{" "}
+          <sup style={{ marginLeft: "10px" }}>
+            <h4>v0.1 Alpha</h4>
+          </sup>
+        </h3>
       </div>
       <div className="user">
         <img src={currentUser.photoURL} alt="" />

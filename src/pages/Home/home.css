@@ -1,5 +1,6 @@
 .home {
-  height: 750px;
+  /* height: 750px; */
+  height: 90%;
   width: 1200px;
   background-color: red;
   border-radius: 10px;
@@ -33,9 +34,13 @@
 }
 
 .navbar .logo h3 {
-  display: block;
+  display: flex;
   line-height: 50px;
   font-family: cursive;
+}
+
+.navbar .logo h3 > sup {
+  color: gray;
 }
 
 .navbar .user {
@@ -86,6 +91,11 @@
   color: lightgray;
 }
 
+.sidebar .chats {
+  height: auto;
+  overflow-y: scroll;
+}
+
 .userChat {
   display: flex;
   align-items: center;
@@ -133,6 +143,14 @@
   padding: 10px;
   color: white;
   text-transform: capitalize;
+}
+
+.chat header img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
 }
 
 .chat .messages {

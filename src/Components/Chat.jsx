@@ -9,6 +9,7 @@ const Chat = () => {
   return (
     <div className="chat">
       <header>
+        <img src={data.user?.photoURL} alt="" />
         <h2>{data.user?.displayName}</h2>
       </header>
 
