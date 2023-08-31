@@ -15,6 +15,16 @@ form {
   border-radius: 10px;
 }
 
+form .error {
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  color: #842029;
+  background-color: #f8d7da;
+}
+
 form h1 {
   text-align: center;
   font-family: cursive;
@@ -28,7 +38,11 @@ form h2 {
   border-bottom: 2px solid rgba(0, 0, 0, 0.158);
 }
 
-form input {
+form .input-group {
+  position: relative;
+}
+
+form .input-group input {
   width: 100%;
   margin-bottom: 20px;
   height: 50px;
@@ -36,12 +50,29 @@ form input {
   outline: none;
   border: none;
   border: 2px solid rgba(0, 0, 0, 0.493);
-  font-size: 20px;
+  font-size: 18px;
   padding: 0 20px;
 }
 
-form input:focus {
+form .input-group input:focus {
   border: 2px solid #4b7bec;
+}
+
+form .input-group label {
+  position: absolute;
+  display: block;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  pointer-events: none;
+  transition: 0.5s ease-in-out;
+}
+
+form .input-group input:focus + label,
+form .input-group input:valid + label {
+  top: 0;
+  font-size: 15px;
+  color: #4b7bec;
 }
 
 form input[type="submit"] {
@@ -56,7 +87,7 @@ form input[type="submit"]:hover {
   background-color: #2862eb;
 }
 
-form label {
+form .file {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -65,7 +96,7 @@ form label {
   cursor: pointer;
 }
 
-form label img {
+form .file img {
   width: 50px;
 }
 

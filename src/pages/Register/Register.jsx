@@ -68,21 +68,33 @@ const Register = () => {
     <div className="wrapper">
       <form onSubmit={handleSubmit}>
         <h1>WOW Chat</h1>
-        <h2>Register</h2>
+        <h2>Create an account. It's free!</h2>
 
-        {err && <span>Something Went Wrong</span>}
+        {err && <span className="error">Something Went Wrong</span>}
 
-        <input type="text" placeholder="Enter Your Name" />
-        <input type="email" placeholder="Enter Your Email" />
-        <input type="password" placeholder="Create Your Password" />
+        <div className="input-group">
+          <input type="text" required />
+          <label htmlFor="">Enter Your Name</label>
+        </div>
+
+        <div className="input-group">
+          <input type="email" required />
+          <label htmlFor="">Enter Your Email</label>
+        </div>
+        <div className="input-group">
+          <input type="password" required />
+          <label htmlFor="">Create Your Password</label>
+        </div>
 
         <input type="file" id="file" hidden />
-        <label htmlFor="file">
+        <label htmlFor="file" className="file">
           <img src={file} alt="" />
           <span>Upload Your Imege</span>
         </label>
 
-        <input type="submit" value="Signup" />
+        <div className="input-group">
+          <input type="submit" value="Signup" />
+        </div>
 
         <hr />
         <p>

@@ -28,16 +28,27 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <h1>WOW Chat</h1>
         <h2>Login</h2>
-        {err && <span>Something Went Wrong</span>}
-        <input type="email" name="" id="" placeholder="Enter Your Email" />
-        <input
-          type="password"
-          name=""
-          id=""
-          placeholder="Create Your Password"
-        />
+        {err && <span className="error">Invalid Email & Password</span>}
 
-        <input type="submit" value="Sign In" />
+        <div className="input-group">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            autoComplete="off"
+            required
+          />
+          <label htmlFor="">Email</label>
+        </div>
+
+        <div className="input-group">
+          <input type="password" name="" id="" autoComplete="off" required />
+          <label htmlFor="">Password</label>
+        </div>
+
+        <div className="input-group">
+          <input type="submit" value="Sign In" />
+        </div>
 
         <hr />
         <p>
