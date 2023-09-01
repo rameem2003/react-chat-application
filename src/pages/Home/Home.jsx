@@ -3,8 +3,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./home.css";
 import Sidebar from "../../Components/Sidebar";
-import Chat from "../../Components/chat";
+// import Chat from "../../Components/chat";
 import { AuthContext } from "../../context/AuthContext";
+import Chat from "./../../Components/Chat";
 
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
