@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../common/styles/form.css";
+import loginPic from "../../assets/undraw_work_chat_re_qes4.svg";
 import { Link, useNavigate } from "react-router-dom";
 
 // firebase
@@ -24,9 +25,18 @@ const Login = () => {
     }
   };
   return (
-    <div className="wrapper">
+    <div className="wrapper form">
+      <div className="imege">
+        <img src={loginPic} alt="" />
+      </div>
+
       <form onSubmit={handleSubmit}>
-        <h1>WOW Chat</h1>
+        <h1>
+          WOW Chat{" "}
+          <sup style={{ marginLeft: "10px" }}>
+            <h4>v0.2 BETA</h4>
+          </sup>
+        </h1>
         <h2>Login</h2>
         {err && <span className="error">Invalid Email & Password</span>}
 

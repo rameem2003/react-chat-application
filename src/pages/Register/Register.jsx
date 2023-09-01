@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // Styles and icons
 import "../../common/styles/form.css";
 import file from "../../assets/file_icon.png";
+import registerPic from "../../assets/undraw_collaborators_re_hont.svg";
 
 // Firebase Auth
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -65,9 +66,18 @@ const Register = () => {
   };
 
   return (
-    <div className="wrapper">
+    <div className="wrapper form">
+      <div className="imege">
+        <img src={registerPic} alt="" />
+      </div>
+
       <form onSubmit={handleSubmit}>
-        <h1>WOW Chat</h1>
+        <h1>
+          WOW Chat{" "}
+          <sup style={{ marginLeft: "10px" }}>
+            <h4>v0.2 BETA</h4>
+          </sup>
+        </h1>
         <h2>Create an account. It's free!</h2>
 
         {err && <span className="error">Something Went Wrong</span>}
