@@ -25,10 +25,6 @@ function App() {
 
   return (
     <>
-      {/* <Register /> */}
-      {/* <Login /> */}
-      {/* <Home /> */}
-
       <BrowserRouter>
         <Routes>
           <Route path="/">
