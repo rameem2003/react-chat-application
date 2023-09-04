@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
-import Inpput from "./Inpput";
+
+// import context
 import { ChatContext } from "../context/ChatContext";
+
+import Inpput from "./Inpput";
 import Messages from "./Messages";
 
 const Chat = () => {

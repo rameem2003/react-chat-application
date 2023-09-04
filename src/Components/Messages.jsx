@@ -1,7 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import Message from "./Message";
+
+// Firebase Auth
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
+// import context
 import { ChatContext } from "../context/ChatContext";
 
 const Messages = () => {

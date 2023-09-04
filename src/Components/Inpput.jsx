@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
+// import context
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
+
+// Firebase Auth
 import {
   Timestamp,
   arrayUnion,
@@ -8,8 +11,8 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
-import { v4 as uuid } from "uuid";
 import { db } from "../firebase";
+import { v4 as uuid } from "uuid";
 
 const Inpput = () => {
   const [text, setText] = useState("");

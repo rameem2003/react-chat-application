@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+// Styles and icons
 import "../../common/styles/form.css";
 import loginPic from "../../assets/undraw_work_chat_re_qes4.svg";
+// react router dom
 import { Link, useNavigate } from "react-router-dom";
 
 // firebase
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+
+// react icons
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
   const [err, setErr] = useState(false);

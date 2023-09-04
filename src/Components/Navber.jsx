@@ -1,6 +1,9 @@
-import { signOut } from "firebase/auth";
 import React, { useContext } from "react";
+
+// Firebase Auth
+import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
+// import context
 import { AuthContext } from "../context/AuthContext";
 
 const Navber = () => {

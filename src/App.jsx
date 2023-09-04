@@ -6,7 +6,9 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 
+// react router dom
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+// import context
 import { AuthContext } from "./context/AuthContext";
 
 function App() {

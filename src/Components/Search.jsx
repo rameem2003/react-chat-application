@@ -13,6 +13,8 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { db } from "../firebase";
+
+// import context
 import { AuthContext } from "./../context/AuthContext";
 // import { ChatContext } from "../context/ChatContext";
 
