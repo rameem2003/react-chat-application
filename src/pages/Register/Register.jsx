@@ -15,6 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 const Register = () => {
+  const [passwordShow, isPasswordShow] = useState(false);
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -68,52 +69,63 @@ const Register = () => {
     }
   };
 
+  const handleClick = () => {
+    isPasswordShow(!passwordShow);
+  };
+
   return (
     <div className="wrapper form">
       <div className="imege">
         <img src={registerPic} alt="" />
+
+        <h1 className="tag">#JOIN THE WORLD OF FEELINGS</h1>
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <h1>
-          WOW Chat{" "}
-          <sup style={{ marginLeft: "10px" }}>
-            <h4>v0.2 BETA</h4>
-          </sup>
-        </h1>
-        <h2>Create an account. It's free!</h2>
+      <div className="forms">
+        <form onSubmit={handleSubmit}>
+          <h1>
+            WOW Chat{" "}
+            <sup style={{ marginLeft: "10px" }}>
+              <h4>v0.2 BETA</h4>
+            </sup>
+          </h1>
+          <h2>Create an account. It's free!</h2>
 
-        {err && <span className="error">Something Went Wrong</span>}
+          {err && <span className="error">Something Went Wrong</span>}
 
-        <div className="input-group">
-          <input type="text" required />
-          <label htmlFor="">Enter Your Name</label>
-        </div>
+          <div className="input-group">
+            <input type="text" required />
+            <label htmlFor="">Enter Your Name</label>
+          </div>
 
-        <div className="input-group">
-          <input type="email" required />
-          <label htmlFor="">Enter Your Email</label>
-        </div>
-        <div className="input-group">
-          <input type="password" required />
-          <label htmlFor="">Create Your Password</label>
-        </div>
+          <div className="input-group">
+            <input type="email" required />
+            <label htmlFor="">Enter Your Email</label>
+          </div>
+          <div className="input-group">
+            <input type={passwordShow ? "text" : "password"} required />
+            <label htmlFor="">Create Your Password</label>
+            <span onClick={handleClick}>
+              {passwordShow ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-        <input type="file" id="file" hidden />
-        <label htmlFor="file" className="file">
-          <img src={file} alt="" />
-          <span>Upload Your Imege</span>
-        </label>
+          <input type="file" id="file" hidden />
+          <label htmlFor="file" className="file">
+            <img src={file} alt="" />
+            <span>Upload Your Imege</span>
+          </label>
 
-        <div className="input-group">
-          <input type="submit" value="Signup" />
-        </div>
+          <div className="input-group">
+            <input type="submit" value="Signup" />
+          </div>
 
-        <hr />
-        <p>
-          If you have an account <Link to="/login">Sign in</Link>
-        </p>
-      </form>
+          <hr />
+          <p>
+            If you have an account <Link to="/login">Sign in</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

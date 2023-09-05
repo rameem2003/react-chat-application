@@ -10,16 +10,21 @@ import Chat from "./../../Components/Chat";
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
   useEffect(() => {
-    toast.success(`Welcome ${currentUser.displayName}`, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    toast.success(
+      <h4 style={{ textTransform: "capitalize" }}>
+        Welcome {currentUser.displayName}
+      </h4>,
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }
+    );
   }, [currentUser]);
 
   return (
