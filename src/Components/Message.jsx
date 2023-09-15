@@ -31,10 +31,15 @@ const Message = ({ message }) => {
           }
           alt=""
         />
-        <span>Now</span>
       </div>
       <div className="messageContent">
         <p>{message.text}</p>
+        {message.img && (
+          <a target="_blank" href={message.img}>
+            <span className="tooltip">Download</span>
+            <img src={message.img} alt="" />
+          </a>
+        )}
       </div>
     </div>
 

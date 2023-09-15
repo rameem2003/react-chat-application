@@ -203,6 +203,31 @@
   border-radius: 0 10px 10px 10px;
 }
 
+.messages .message .messageContent a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+
+.messages .message .messageContent a .tooltip {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  padding: 3px;
+  border-radius: 5px;
+  background-color: white;
+  transition: 0.5s;
+  visibility: hidden;
+}
+
+.messages .message .messageContent a:hover .tooltip {
+  visibility: visible;
+}
+
+.messages .message .messageContent img {
+  width: 120px;
+}
+
 .chat .input {
   width: 100%;
   height: 50px;
@@ -230,4 +255,16 @@
   outline: none;
   color: white;
   cursor: pointer;
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.file img {
+  width: 40px;
 }

@@ -86,7 +86,7 @@ const Register = () => {
           <h1>
             WOW Chat{" "}
             <sup style={{ marginLeft: "10px" }}>
-              <h4>v0.2 BETA</h4>
+              <h4>v0.5 BETA</h4>
             </sup>
           </h1>
           <h2>Create an account. It's free!</h2>
