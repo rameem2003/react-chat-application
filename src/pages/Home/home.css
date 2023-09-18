@@ -153,11 +153,29 @@
   margin-right: 10px;
 }
 
-.chat .messages {
+.chat .messages,
+.chat .welcomeScreen {
   background-color: rgb(166, 178, 247);
   padding: 10px;
   height: calc(100% - 130px);
   overflow-y: scroll;
+}
+
+.chat .welcomeScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: gray;
+}
+
+.chat .welcomeScreen .logo {
+  font-size: 120px;
+  font-family: cursive;
+  padding: 20px;
+  border: 5px solid gray;
+  border-radius: 50%;
+  margin-bottom: 20px;
 }
 
 .chat .messages .message {

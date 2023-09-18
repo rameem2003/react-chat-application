@@ -5,6 +5,7 @@ import { ChatContext } from "../context/ChatContext";
 
 import Inpput from "./Inpput";
 import Messages from "./Messages";
+import WelcomeScreen from "./WelcomeScreen";
 
 const Chat = () => {
   const { data } = useContext(ChatContext);
@@ -16,7 +17,9 @@ const Chat = () => {
         <h2>{data.user?.displayName}</h2>
       </header>
 
-      <Messages />
+      {/* <Messages /> */}
+
+      {data.showWelcome ? <WelcomeScreen /> : <Messages />}
 
       <Inpput />
     </div>
