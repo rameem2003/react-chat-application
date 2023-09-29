@@ -26,7 +26,8 @@ const Inpput = () => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
-  const handleSend = async () => {
+  const handleSend = async (e) => {
+    e.preventDefault();
     if (img) {
       const storageRef = ref(storage, uuid());
 
@@ -80,7 +81,7 @@ const Inpput = () => {
     setImg(null);
   };
   return (
-    <div className="input">
+    <form className="input" onSubmit={handleSend}>
       <input
         type="text"
         name=""
@@ -100,10 +101,10 @@ const Inpput = () => {
         <img src={file} alt="" />
       </label>
 
-      <button type="button" onClick={handleSend}>
+      <button type="submit">
         SEND <FaPaperPlane />
       </button>
-    </div>
+    </form>
   );
 };
 
