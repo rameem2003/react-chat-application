@@ -14,7 +14,7 @@ const Navber = () => {
         <h3>
           WOW CHAT{" "}
           <sup style={{ marginLeft: "10px" }}>
-            <h4>v0.5 BETA</h4>
+            <h4>INSIDER</h4>
           </sup>
         </h3>
       </div>

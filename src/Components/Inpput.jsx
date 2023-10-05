@@ -21,7 +21,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Inpput = () => {
   const [text, setText] = useState("");
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState("");
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
@@ -29,6 +29,7 @@ const Inpput = () => {
   const handleSend = async (e) => {
     e.preventDefault();
     if (img) {
+      console.log(img);
       const storageRef = ref(storage, uuid());
 
       const uploadTask = uploadBytesResumable(storageRef, img);
@@ -78,10 +79,10 @@ const Inpput = () => {
     });
 
     setText("");
-    setImg(null);
+    setImg("");
   };
   return (
-    <form className="input" onSubmit={handleSend}>
+    <form className="input">
       <input
         type="text"
         name=""
@@ -101,7 +102,7 @@ const Inpput = () => {
         <img src={file} alt="" />
       </label>
 
-      <button type="submit">
+      <button type="submit" onClick={handleSend}>
         SEND <FaPaperPlane />
       </button>
     </form>

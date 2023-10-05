@@ -47,7 +47,7 @@ const Login = () => {
           <h1>
             WOW Chat{" "}
             <sup style={{ marginLeft: "10px" }}>
-              <h4>v0.5 BETA</h4>
+              <h4></h4>
             </sup>
           </h1>
           <h2>Login</h2>
