@@ -46,7 +46,10 @@ const Chats = () => {
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">
               <h3>{chat[1].userInfo.displayName}</h3>
-              <span>{chat[1].lastMessage?.text}</span>
+              <span>
+                {chat[1].lastMessage?.text.substring(0, 30)}{" "}
+                {chat[1].lastMessage?.text.length >= 30 ? "..........." : ""}
+              </span>
             </div>
           </div>
         ))}
