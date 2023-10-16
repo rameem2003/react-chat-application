@@ -2,7 +2,13 @@
 
 A Chating Web Application For Desktop
 
-[![Software Version](https://img.shields.io/badge/Software_Version-0.5_Beta-red.svg)]()
+[![Software Version](https://img.shields.io/badge/Software_Version-Insider_Preview-red.svg)]()
+
+## App Link
+
+```
+https://wowchat.netlify.app/
+```
 
 ## Developer Information
 
@@ -10,13 +16,13 @@ A Chating Web Application For Desktop
 
 #### Frontend Web Developer
 
-#### Studing Diploma Engineering in CSE
+#### Studying Diploma Engineering in CSE
 
 ---
 
 ## 🚀 About Me
 
-I'm a passionate frontend developer from Bangladesh. Studying Diploma Engineering in Computer Technology at Institute of Science Trade & Technology, Dhaka. Also a Web Developer. Fluent in HTML, CSS, JS, Bootstrap.
+I'm a passionate front-end developer from Bangladesh. Studying Diploma Engineering in Computer Technology at the Institute of Science Trade & Technology, Dhaka. Also a Web Developer. Fluent in HTML, CSS, JS, Bootstrap.
 
 ## App Interface
 
@@ -48,11 +54,11 @@ Chat Screen
 
 ## Features
 
-- Real Time Chating
+- Real-Time Chating
 - All Language Support
 - New Chat Search
-- Image Share (JPG Formate)
-- Loging Successfull Toast Message
+- Image Share (JPG Format)
+- Logging Successful Toast Message
 
 ## Tech Stack
 
@@ -83,12 +89,17 @@ This project is used by the following companies:
 
 - Republic of Legends
 
+## Issues
+
+- App Responsive Issue
+- Dark / Light Theme Not Work On This Version
+
 ## FAQ
 
-#### Can I Make Call?
+#### Can I Make A Call?
 
-You can't make call at this moment
+You Can't Make A Call At This Moment
 
-#### Can I Send Message To Anyone?
+#### Can I Send A Message To Anyone?
 
-You Can Send Message To Anyone If The User Registeres In WOW Chat
+You Can Send AMessage To Anyone If The User Registered In WOW Chat
