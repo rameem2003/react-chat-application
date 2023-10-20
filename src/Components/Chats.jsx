@@ -1,4 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
+
+import beepSound from "../assets/sound.mp3";
+
 // import context
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
@@ -13,6 +16,14 @@ const Chats = () => {
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
   const { theme } = useContext(ThemeContext);
+
+  // const beep = () => {
+  //   new Audio(beepSound).play();
+  // };
+
+  // const beepOff = () => {
+  //   new Audio(beepSound).pause();
+  // };
 
   useEffect(() => {
     const getChats = () => {
@@ -51,6 +62,7 @@ const Chats = () => {
               <span>
                 {chat[1].lastMessage?.text.substring(0, 30)}{" "}
                 {chat[1].lastMessage?.text.length >= 30 ? "..........." : ""}
+                {/* {chat[1].lastMessage?.text ? beep() : beepOff()} */}
               </span>
             </div>
           </div>
