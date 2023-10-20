@@ -1,3 +1,7 @@
+:root {
+  --dark: #0e255a;
+}
+
 .home {
   /* height: 750px; */
   height: 90%;
@@ -14,6 +18,10 @@
   width: 40%;
   height: 100%;
   background-color: #1850d3;
+}
+
+.sidebar.dark {
+  background-color: var(--dark) !important;
 }
 
 .sidebar .navbar {
@@ -129,6 +137,10 @@
   background-color: #0e255a;
 }
 
+.userChat.dark:hover {
+  background-color: rgb(86, 91, 121) !important;
+}
+
 .chat {
   width: 60%;
 }
@@ -139,10 +151,20 @@
   background-color: #1850d3;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 10px;
   color: white;
   text-transform: capitalize;
+}
+
+.chat header.dark {
+  background-color: #0e255a !important;
+}
+
+.chat header .user_profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .chat header img {
@@ -153,6 +175,14 @@
   margin-right: 10px;
 }
 
+.chat header .themePreferance button {
+  color: white;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .chat .messages,
 .chat .welcomeScreen {
   background-color: rgb(166, 178, 247);
@@ -160,6 +190,11 @@
   height: calc(100% - 130px);
   /* height: 100%; */
   overflow-y: scroll;
+}
+
+.chat .messages.dark,
+.chat .welcomeScreen.dark {
+  background-color: rgb(53, 64, 125);
 }
 
 .chat .welcomeScreen {

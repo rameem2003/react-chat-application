@@ -6,11 +6,13 @@ import { ChatContext } from "../context/ChatContext";
 // Firebase Auth
 import { db } from "../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Chats = () => {
   const [chats, setChats] = useState([]);
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const getChats = () => {
@@ -39,7 +41,7 @@ const Chats = () => {
         ?.sort((a, b) => b[1].date - a[1].date)
         .map((chat) => (
           <div
-            className="userChat"
+            className={`userChat ${theme ? "dark" : ""}`}
             key={chat[0]}
             onClick={() => handleSelect(chat[1].userInfo)}
           >
