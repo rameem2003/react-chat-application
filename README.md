@@ -59,6 +59,7 @@ Chat Screen
 - New Chat Search
 - Image Share (JPG Format)
 - Logging Successful Toast Message
+- Dark / Light Theme Switch
 
 ## Tech Stack
 
@@ -92,7 +93,6 @@ This project is used by the following companies:
 ## Issues
 
 - App Responsive Issue
-- Dark / Light Theme Not Work On This Version
 
 ## FAQ
 

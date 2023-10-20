@@ -5,10 +5,12 @@ import "./home.css";
 import Sidebar from "../../Components/Sidebar";
 // import Chat from "../../Components/chat";
 import { AuthContext } from "../../context/AuthContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import Chat from "./../../Components/Chat";
 
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
   useEffect(() => {
     toast.success(
       <h4 style={{ textTransform: "capitalize" }}>
@@ -28,7 +30,7 @@ const Home = () => {
   }, [currentUser]);
 
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${theme ? "dark" : ""}`}>
       <div className="home">
         <Sidebar />
         <Chat />

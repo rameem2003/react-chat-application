@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.wrapper.dark {
+  background: #192a56;
+}
+
 .wrapper.form {
   justify-content: space-between;
 }
@@ -29,6 +33,7 @@
   font-size: 50px;
   margin-top: 30px;
   font-family: cursive;
+  text-align: center;
 }
 
 .wrapper .forms {

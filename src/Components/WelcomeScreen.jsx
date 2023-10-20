@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import banner from "../assets/wow-chat-welcome-screen.png";
+import { ThemeContext } from "../context/ThemeContext";
 
 const WelcomeScreen = () => {
-  return (
-    <div className="welcomeScreen">
-      <h1 className="logo">W</h1>
-      <h1>WOW CHAT FOR WEB</h1>
+  const { theme } = useContext(ThemeContext);
 
-      <p>Share your feelings to your close buddies</p>
+  return (
+    <div className={`welcomeScreen ${theme ? "dark" : ""}`}>
+      <img src={banner} alt="" />
     </div>
   );
 };
