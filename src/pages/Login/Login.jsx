@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import AuthAnimation from "../../Components/AuthAnimation";
+
 // Styles and icons
 import "../../common/styles/form.css";
 import loginPic from "../../assets/undraw_work_chat_re_qes4.svg";
@@ -14,19 +16,24 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
   const [passwordShow, isPasswordShow] = useState(false);
+  const [isSpining, setIsSpining] = useState(false);
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(e.target[3].files[0]);
     const email = e.target[0].value;
     const password = e.target[1].value;
 
+    setIsSpining(true);
+
     // const auth = getAuth();
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
     } catch (error) {
+      setIsSpining(false);
       setErr(true);
     }
   };
@@ -51,6 +58,7 @@ const Login = () => {
             </sup>
           </h1>
           <h2>Login</h2>
+          {/* {isSpining ? <AuthAnimation /> : <></>} */}
           {err && <span className="error">Invalid Email & Password</span>}
 
           <div className="input-group">
@@ -79,7 +87,13 @@ const Login = () => {
           </div>
 
           <div className="input-group">
-            <input type="submit" value="Sign In" />
+            {isSpining ? (
+              <AuthAnimation />
+            ) : (
+              <input type="submit" value="Sign In" />
+            )}
+
+            {/* <input type="submit" value="Sign In" /> */}
           </div>
 
           <hr />

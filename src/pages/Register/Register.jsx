@@ -35,10 +35,6 @@ const Register = () => {
 
       const uploadTask = uploadBytesResumable(storageRef, file);
 
-      // Register three observers:
-      // 1. 'state_changed' observer, called any time the state changes
-      // 2. Error observer, called on failure
-      // 3. Completion observer, called on successful completion
       uploadTask.on(
         (error) => {
           setErr(true);
