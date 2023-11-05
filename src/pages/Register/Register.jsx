@@ -13,9 +13,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 // react icons
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import AuthAnimation from "../../Components/AuthAnimation";
 
 const Register = () => {
   const [passwordShow, isPasswordShow] = useState(false);
+  const [isSpining, setIsSpining] = useState(false);
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -26,11 +28,15 @@ const Register = () => {
     const password = e.target[2].value;
     const file = e.target[3].files[0];
 
+    setIsSpining(true);
+
     // const auth = getAuth();
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
-      // const storage = getStorage();
+      setIsSpining(false);
+
+      const storage = getStorage();
       const storageRef = ref(storage, displayName);
 
       const uploadTask = uploadBytesResumable(storageRef, file);
@@ -38,6 +44,7 @@ const Register = () => {
       uploadTask.on(
         (error) => {
           setErr(true);
+          isSpining(false);
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -62,6 +69,7 @@ const Register = () => {
       );
     } catch (error) {
       setErr(true);
+      setIsSpining(false);
     }
   };
 
@@ -113,7 +121,14 @@ const Register = () => {
           </label>
 
           <div className="input-group">
-            <input type="submit" value="Signup" />
+            {/* <input type="submit" value="Signup" />
+            <AuthAnimation /> */}
+
+            {isSpining ? (
+              <AuthAnimation />
+            ) : (
+              <input type="submit" value="Sign In" />
+            )}
           </div>
 
           <hr />
