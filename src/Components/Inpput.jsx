@@ -21,7 +21,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Inpput = () => {
   const [text, setText] = useState("");
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState(null);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
@@ -79,7 +79,7 @@ const Inpput = () => {
     });
 
     setText("");
-    setImg("");
+    setImg(null);
   };
   return (
     <form className="input">
