@@ -77,7 +77,7 @@ To deploy this project run
 
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+[Documentation](https://getstarted-wowchat.netlify.app/)
 
 ## 🔗 Links
 
@@ -102,4 +102,4 @@ You Can't Make A Call At This Moment
 
 #### Can I Send A Message To Anyone?
 
-You Can Send AMessage To Anyone If The User Registered In WOW Chat
+You Can Send A Message To Anyone If The User Registered In WOW Chat
