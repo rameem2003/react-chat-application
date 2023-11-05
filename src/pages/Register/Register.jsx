@@ -36,7 +36,6 @@ const Register = () => {
 
       setIsSpining(false);
 
-      const storage = getStorage();
       const storageRef = ref(storage, displayName);
 
       const uploadTask = uploadBytesResumable(storageRef, file);
