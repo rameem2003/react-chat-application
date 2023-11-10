@@ -3,8 +3,8 @@
 }
 
 .home {
-  /* height: 750px; */
-  height: 90%;
+  height: 750px;
+  /* height: 90%; */
   width: 1200px;
   /* background-color: red; */
   border-radius: 10px;
@@ -169,6 +169,13 @@
   margin-right: 10px;
 }
 
+.chat header .themePreferance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 .chat header .themePreferance button {
   color: white;
   background-color: transparent;
@@ -182,8 +189,12 @@
   background-color: rgb(166, 178, 247);
   padding: 10px;
   height: calc(100% - 130px);
-  /* height: 100%; */
   overflow-y: scroll;
+}
+
+.chat .messages {
+  overflow-y: scroll;
+  /* height: 100%; */
 }
 
 .chat .messages.dark,

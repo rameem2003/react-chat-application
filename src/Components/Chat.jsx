@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaRegSun, FaMoon } from "react-icons/fa6";
+import { FaRegSun, FaMoon, FaBars } from "react-icons/fa6";
 
 // import context
 import { ChatContext } from "../context/ChatContext";
@@ -25,6 +25,11 @@ const Chat = () => {
         <div className="themePreferance">
           <button onClick={cngTheme}>
             {theme ? <FaRegSun size={30} /> : <FaMoon size={30} />}
+          </button>
+
+          <button type="button">
+            {" "}
+            <FaBars size={30} />
           </button>
         </div>
       </header>
