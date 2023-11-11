@@ -21,13 +21,13 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Inpput = () => {
   const [text, setText] = useState("");
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState("");
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
   const handleSend = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     if (img) {
       console.log(img);
       const storageRef = ref(storage, uuid());
@@ -37,6 +37,7 @@ const Inpput = () => {
       uploadTask.on(
         (error) => {
           // setErr(true);
+          console.log("error");
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -79,10 +80,10 @@ const Inpput = () => {
     });
 
     setText("");
-    setImg(null);
+    setImg("");
   };
   return (
-    <form className="input">
+    <div className="input">
       <input
         type="text"
         name=""
@@ -105,7 +106,7 @@ const Inpput = () => {
       <button type="submit" onClick={handleSend}>
         SEND <FaPaperPlane />
       </button>
-    </form>
+    </div>
   );
 };
 
