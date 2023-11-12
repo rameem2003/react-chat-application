@@ -18,6 +18,7 @@
   width: 40%;
   height: 100%;
   background-color: #1850d3;
+  transition: 0.4s;
 }
 
 .sidebar.dark {
@@ -137,6 +138,7 @@
 
 .chat {
   width: 60%;
+  transition: 0.4s;
 }
 
 .chat header {
@@ -184,6 +186,10 @@
   cursor: pointer;
 }
 
+.chat header .themePreferance .showChats {
+  display: none;
+}
+
 .chat .messages,
 .chat .welcomeScreen {
   background-color: rgb(166, 178, 247);
@@ -210,6 +216,7 @@
   justify-content: center;
   flex-direction: column;
   color: gray;
+  overflow: hidden;
 }
 
 .chat .welcomeScreen img {
@@ -294,7 +301,7 @@
 }
 
 .messages .message .messageContent img {
-  width: 120px;
+  width: 264px;
 }
 
 .chat .input {
@@ -341,4 +348,146 @@
 
 .file img {
   width: 40px;
+}
+
+@media (min-width: 320px) and (max-width: 575px) {
+  .home {
+    height: 100%;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .home .sidebar {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    transition: 0.4s linear;
+    z-index: 99;
+  }
+
+  .home .sidebar.showSidebar {
+    left: 0;
+  }
+
+  .home .chat {
+    width: 100%;
+  }
+
+  .chat header .themePreferance .showChats {
+    display: block;
+  }
+
+  .messages .message .messageContent img {
+    width: 203px;
+  }
+
+  .Toastify__toast {
+    width: 100%;
+    position: absolute;
+
+    top: 90vh;
+    z-index: 0;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .home {
+    height: 100%;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .home .sidebar {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    transition: 0.4s linear;
+    z-index: 99;
+  }
+
+  .home .sidebar.showSidebar {
+    left: 0;
+  }
+
+  .home .chat {
+    width: 100%;
+  }
+
+  .chat header .themePreferance .showChats {
+    display: block;
+  }
+
+  .messages .message .messageContent img {
+    width: 203px;
+  }
+
+  .Toastify__toast {
+    width: 100%;
+    position: absolute;
+
+    top: 90vh;
+    z-index: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .home {
+    height: 100%;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .home .sidebar {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    transition: 0.4s linear;
+    z-index: 99;
+  }
+
+  .home .sidebar.showSidebar {
+    left: 0;
+  }
+
+  .home .chat {
+    width: 100%;
+  }
+
+  .chat header .themePreferance .showChats {
+    display: block;
+  }
+
+  .messages .message .messageContent img {
+    width: 203px;
+  }
+
+  .Toastify__toast {
+    width: 100%;
+    position: absolute;
+
+    top: 90vh;
+    z-index: 0;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .home {
+    height: 100%;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .home .sidebar {
+    width: 50%;
+    transition: 0.4s linear;
+    z-index: 99;
+  }
+
+  .home .chat {
+    width: 50%;
+  }
 }

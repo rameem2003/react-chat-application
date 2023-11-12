@@ -106,7 +106,7 @@ const Inpput = () => {
       </label>
 
       <button onClick={handleSend}>
-        SEND <FaPaperPlane />
+        <FaPaperPlane />
       </button>
     </form>
   );

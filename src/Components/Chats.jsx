@@ -10,12 +10,14 @@ import { ChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import { ThemeContext } from "../context/ThemeContext";
+import { ToggleChatContext } from "../context/ToggleChatContext";
 
 const Chats = () => {
   const [chats, setChats] = useState([]);
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
   const { theme } = useContext(ThemeContext);
+  const { handlToggle } = useContext(ToggleChatContext);
 
   // const beep = () => {
   //   new Audio(beepSound).play();
@@ -54,7 +56,10 @@ const Chats = () => {
           <div
             className={`userChat ${theme ? "dark" : ""}`}
             key={chat[0]}
-            onClick={() => handleSelect(chat[1].userInfo)}
+            onClick={() => {
+              handleSelect(chat[1].userInfo);
+              handlToggle();
+            }}
           >
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">

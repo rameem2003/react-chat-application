@@ -5,14 +5,17 @@ import "./index.css";
 import { AuthContextProvider } from "./context/AuthContext";
 import { ChatContextProvider } from "./context/ChatContext";
 import { ThemeContextProvider } from "./context/ThemeContext.jsx";
+import { ToggleChatContextProvider } from "./context/ToggleChatContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
     <ChatContextProvider>
       <ThemeContextProvider>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
+        <ToggleChatContextProvider>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </ToggleChatContextProvider>
       </ThemeContextProvider>
     </ChatContextProvider>
   </AuthContextProvider>
