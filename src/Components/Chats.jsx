@@ -14,6 +14,7 @@ import { ToggleChatContext } from "../context/ToggleChatContext";
 
 const Chats = () => {
   const [chats, setChats] = useState([]);
+  const [open, isOpen] = useState(false);
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
   const { theme } = useContext(ThemeContext);
@@ -48,6 +49,12 @@ const Chats = () => {
     dispatch({ type: "CHANGE_USER", payload: u });
   };
 
+  const handleOpen = () => {
+    isOpen(false);
+
+    isOpen(true);
+  };
+
   return (
     <div className="chats">
       {Object.entries(chats)
@@ -59,6 +66,7 @@ const Chats = () => {
             onClick={() => {
               handleSelect(chat[1].userInfo);
               handlToggle();
+              // handleOpen();
             }}
           >
             <img src={chat[1].userInfo.photoURL} alt="" />
