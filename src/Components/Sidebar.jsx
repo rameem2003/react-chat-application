@@ -4,6 +4,7 @@ import Search from "./Search";
 import Chats from "./Chats";
 import { ThemeContext } from "../context/ThemeContext";
 import { ToggleChatContext } from "../context/ToggleChatContext";
+import Download from "./Download";
 
 const Sidebar = () => {
   const { theme } = useContext(ThemeContext);
@@ -18,6 +19,7 @@ const Sidebar = () => {
       <Navber />
       <Search />
       <Chats />
+      <Download />
     </div>
   );
 };

@@ -19,10 +19,24 @@
   height: 100%;
   background-color: #1850d3;
   transition: 0.4s;
+  position: relative;
 }
 
 .sidebar.dark {
   background-color: var(--dark) !important;
+}
+
+.sidebar .download {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #183c8f;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
 }
 
 .sidebar .navbar {
@@ -36,7 +50,7 @@
   padding: 10px;
 }
 
-.navbar .logo h3 {
+/* .navbar .logo h3 {
   display: flex;
   line-height: 50px;
   font-family: cursive;
@@ -44,6 +58,14 @@
 
 .navbar .logo h3 > sup {
   color: gray;
+} */
+
+.navbar .logo {
+  width: 30%;
+}
+
+.navbar .logo img {
+  width: 50%;
 }
 
 .navbar .user {
