@@ -5,6 +5,9 @@ import { ChatContext } from "../context/ChatContext";
 
 import { useRef } from "react";
 
+// import sound
+import sound from "../assets/sound.mp3";
+
 const Message = ({ message }) => {
   // console.log(message);
 
@@ -16,6 +19,10 @@ const Message = ({ message }) => {
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
+
+  // useEffect(() => {
+  //   new Audio(sound).play();
+  // });
 
   return (
     <div
