@@ -41,7 +41,7 @@ const Inpput = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            // console.log("File available at", downloadURL);
+            console.log("File available at", downloadURL);
             await updateDoc(doc(db, "chats", data.chatId), {
               messages: arrayUnion({
                 id: uuid(),
