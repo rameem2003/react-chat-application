@@ -24,7 +24,7 @@ const Home = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: `${theme ? "colored" : "light"}`,
       }
     );
   }, [currentUser]);

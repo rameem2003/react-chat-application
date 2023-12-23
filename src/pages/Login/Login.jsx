@@ -17,7 +17,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 const Login = () => {
   const [passwordShow, isPasswordShow] = useState(false);
   const [isSpining, setIsSpining] = useState(false);
-  const [err, setErr] = useState(false);
+  const [err, setErr] = useState({ status: false, msg: "" });
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -26,15 +26,40 @@ const Login = () => {
     const email = e.target[0].value;
     const password = e.target[1].value;
 
-    setIsSpining(true);
-
-    // const auth = getAuth();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/");
-    } catch (error) {
+    if (!email) {
+      setErr({ status: true, msg: "Invalid email or field is empty" });
       setIsSpining(false);
-      setErr(true);
+    }
+
+    if (!password) {
+      setErr({ status: true, msg: "Please enter password" });
+      setIsSpining(false);
+    }
+
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setErr({ status: true, msg: "You entered an invalid email" });
+      setIsSpining(false);
+      return;
+    }
+
+    if (email && password) {
+      setIsSpining(true);
+
+      // const auth = getAuth();
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        navigate("/");
+      } catch (error) {
+        // console.log(error.code);
+        setIsSpining(false);
+
+        if (error.code.includes("auth/invalid-email")) {
+          setErr({ status: true, msg: "Wrong email or password" });
+        }
+        if (error.code.includes("auth/wrong-password")) {
+          setErr({ status: true, msg: "Wrong email or password" });
+        }
+      }
     }
   };
 
@@ -59,11 +84,11 @@ const Login = () => {
           </h1>
           <h2>Login</h2>
           {/* {isSpining ? <AuthAnimation /> : <></>} */}
-          {err && <span className="error">Invalid Email & Password</span>}
+          {err.status && <span className="error">{err.msg}</span>}
 
           <div className="input-group">
             <input
-              type="email"
+              type="text"
               name="email"
               id="email"
               autoComplete="off"

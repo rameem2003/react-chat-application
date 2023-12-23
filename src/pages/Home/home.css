@@ -270,6 +270,11 @@
   color: black;
 }
 
+.chat .messages .messageContent .msgTime {
+  color: rgb(34, 33, 33);
+  font-size: 12px;
+}
+
 .chat .messages .owner {
   flex-direction: row-reverse;
 }

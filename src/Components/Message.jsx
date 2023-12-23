@@ -9,7 +9,7 @@ import { useRef } from "react";
 import sound from "../assets/sound.mp3";
 
 const Message = ({ message }) => {
-  // console.log(message);
+  console.log(message);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
@@ -23,6 +23,27 @@ const Message = ({ message }) => {
   // useEffect(() => {
   //   new Audio(sound).play();
   // });
+
+  const showTime = (ns, s) => {
+    //date from firebase is represented as
+    let time = {
+      seconds: s,
+      nanoseconds: ns,
+    };
+
+    const fireBaseTime = new Date(
+      time.seconds * 1000 + time.nanoseconds / 1000000
+    );
+    const date = fireBaseTime.toDateString();
+    const atTime = fireBaseTime.toLocaleTimeString();
+
+    console.log(date, atTime);
+    return (
+      <>
+        {date}, {atTime}
+      </>
+    );
+  };
 
   return (
     <div
@@ -40,7 +61,12 @@ const Message = ({ message }) => {
         />
       </div>
       <div className="messageContent">
-        <p>{message.text}</p>
+        <div>
+          <p>{message.text}</p>
+          <span className="msgTime">
+            {showTime(message.date.nanoseconds, message.date.seconds)}
+          </span>
+        </div>
         {message.img && (
           <a target="_blank" href={message.img}>
             <span className="tooltip">Download</span>

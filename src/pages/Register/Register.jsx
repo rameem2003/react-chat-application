@@ -18,7 +18,8 @@ import AuthAnimation from "../../Components/AuthAnimation";
 const Register = () => {
   const [passwordShow, isPasswordShow] = useState(false);
   const [isSpining, setIsSpining] = useState(false);
-  const [err, setErr] = useState(false);
+  // const [err, setErr] = useState(false);
+  const [err, setErr] = useState({ status: false, msg: "" });
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,47 +29,83 @@ const Register = () => {
     const password = e.target[2].value;
     const file = e.target[3].files[0];
 
-    setIsSpining(true);
-
-    // const auth = getAuth();
-    try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
-
+    if (!displayName) {
+      setErr({ status: true, msg: "Please enter your name" });
       setIsSpining(false);
+    }
+    if (!email) {
+      setErr({ status: true, msg: "Invalid email or field is empty" });
+      setIsSpining(false);
+    }
 
-      const storageRef = ref(storage, displayName);
+    if (!password) {
+      setErr({ status: true, msg: "Please enter password" });
+      setIsSpining(false);
+    }
 
-      const uploadTask = uploadBytesResumable(storageRef, file);
+    if (!file) {
+      setErr({ status: true, msg: "Must input a profile picture" });
+      setIsSpining(false);
+    }
 
-      uploadTask.on(
-        (error) => {
-          setErr(true);
-          isSpining(false);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            // console.log("File available at", downloadURL);
-            await updateProfile(res.user, {
-              displayName,
-              photoURL: downloadURL,
-            });
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setErr({ status: true, msg: "You entered an invalid email" });
+      setIsSpining(false);
+      return;
+    }
 
-            await setDoc(doc(db, "alluser", res.user.uid), {
-              uid: res.user.uid,
-              displayName,
-              email,
-              photoURL: downloadURL,
-            });
+    if (displayName && email && password && file) {
+      setIsSpining(true);
 
-            await setDoc(doc(db, "userChats", res.user.uid), {});
+      // const auth = getAuth();
+      try {
+        const res = await createUserWithEmailAndPassword(auth, email, password);
 
-            navigate("/");
-          });
+        setIsSpining(false);
+
+        const storageRef = ref(storage, displayName);
+
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+          (error) => {
+            setErr(true);
+            isSpining(false);
+          },
+          () => {
+            getDownloadURL(uploadTask.snapshot.ref).then(
+              async (downloadURL) => {
+                // console.log("File available at", downloadURL);
+                await updateProfile(res.user, {
+                  displayName,
+                  photoURL: downloadURL,
+                });
+
+                await setDoc(doc(db, "alluser", res.user.uid), {
+                  uid: res.user.uid,
+                  displayName,
+                  email,
+                  photoURL: downloadURL,
+                });
+
+                await setDoc(doc(db, "userChats", res.user.uid), {});
+
+                navigate("/");
+              }
+            );
+          }
+        );
+      } catch (error) {
+        console.log(error.code);
+        if (error.code.includes("auth/email-already-in-use")) {
+          setErr({ status: true, msg: "Email already in use" });
+          setIsSpining(false);
         }
-      );
-    } catch (error) {
-      setErr(true);
-      setIsSpining(false);
+        if (error.code.includes("auth/weak-password")) {
+          setErr({ status: true, msg: "Opps! weak password" });
+          setIsSpining(false);
+        }
+      }
     }
   };
 
@@ -94,7 +131,7 @@ const Register = () => {
           </h1>
           <h2>Create an account. It's free!</h2>
 
-          {err && <span className="error">Something Went Wrong</span>}
+          {err.status && <span className="error">{err.msg}</span>}
 
           <div className="input-group">
             <input type="text" required />
@@ -102,7 +139,7 @@ const Register = () => {
           </div>
 
           <div className="input-group">
-            <input type="email" required />
+            <input type="text" required />
             <label htmlFor="">Enter Your Email</label>
           </div>
           <div className="input-group">
