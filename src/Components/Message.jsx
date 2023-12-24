@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 // import context
 import { AuthContext } from "./../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 import { useRef } from "react";
 
@@ -9,10 +10,11 @@ import { useRef } from "react";
 import sound from "../assets/sound.mp3";
 
 const Message = ({ message }) => {
-  console.log(message);
+  // console.log(message);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
+  const { theme } = useContext(ThemeContext);
 
   const ref = useRef();
 
@@ -63,7 +65,7 @@ const Message = ({ message }) => {
       <div className="messageContent">
         <div>
           <p>{message.text}</p>
-          <span className="msgTime">
+          <span className={`msgTime ${theme ? "dark" : ""}`}>
             {showTime(message.date.nanoseconds, message.date.seconds)}
           </span>
         </div>

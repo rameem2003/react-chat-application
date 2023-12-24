@@ -275,6 +275,10 @@
   font-size: 12px;
 }
 
+.chat .messages .messageContent .msgTime.dark {
+  color: white;
+}
+
 .chat .messages .owner {
   flex-direction: row-reverse;
 }
