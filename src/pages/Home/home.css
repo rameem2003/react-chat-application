@@ -364,12 +364,18 @@
 }
 
 .chat .input button {
-  padding: 8px 19px;
+  padding: 10px 22px;
+  border-radius: 20px;
   background-color: #183c8f;
   border: none;
   outline: none;
   color: white;
   cursor: pointer;
+  transition: 0.4s linear;
+}
+
+.chat .input button:hover {
+  background-color: #325bb9;
 }
 
 .file {

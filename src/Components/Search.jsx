@@ -96,7 +96,9 @@ const Search = () => {
           id=""
           placeholder="Search Contact"
           onKeyDown={handleKey}
-          onChange={(e) => setUserName(e.target.value)}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
           value={userName}
         />
       </div>
