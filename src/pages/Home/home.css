@@ -36,7 +36,11 @@
   background-color: #183c8f;
   width: 100%;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .sidebar .navbar {
@@ -120,6 +124,11 @@
   /* height: auto; */
   height: 500px;
   overflow-y: scroll;
+}
+
+.sidebar .chats::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 20px;
 }
 
 .userChat {
@@ -236,6 +245,11 @@
 .chat .welcomeScreen.dark {
   background-color: rgb(53, 64, 125);
   color: white;
+}
+
+.chat .messages.dark::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 20px;
 }
 
 .chat .welcomeScreen {
