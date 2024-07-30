@@ -2,7 +2,7 @@
 
 A Chating Web Application For Desktop
 
-[![Software Version](https://img.shields.io/badge/Software_Version-Public_BETA-red.svg)]()
+[![Software Version](https://img.shields.io/badge/Software_Version-STABLE-green.svg)]()
 
 ## App Link
 

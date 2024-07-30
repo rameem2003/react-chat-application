@@ -124,7 +124,7 @@ const Register = () => {
       <div className="forms">
         <form onSubmit={handleSubmit}>
           <h1>
-            WOW Chat{" "}
+            WOW Chat
             <sup style={{ marginLeft: "10px" }}>
               <h4></h4>
             </sup>
