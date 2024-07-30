@@ -79,6 +79,10 @@ To deploy this project run
 
 [Documentation](https://getstarted-wowchat.netlify.app/)
 
+## Windows App Build Resourses
+
+[Youtube](https://youtu.be/uKWkgf8cUE0?si=W2cHnL_bG-F4AuVr)
+
 ## 🔗 Links
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://rameem.netlify.app/)
