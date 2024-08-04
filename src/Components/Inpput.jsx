@@ -95,7 +95,7 @@ const Inpput = () => {
         placeholder="Type Anything........"
       />
 
-      <input
+      {/* <input
         type="file"
         style={{ display: "none" }}
         id="file"
@@ -103,7 +103,7 @@ const Inpput = () => {
       />
       <label htmlFor="file" className="file">
         <img src={file} alt="" />
-      </label>
+      </label> */}
 
       <button onClick={handleSend}>
         <FaPaperPlane />
